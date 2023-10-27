@@ -1,0 +1,5 @@
+flask
+pywebview
+pandas
+pyinstaller
+waitress

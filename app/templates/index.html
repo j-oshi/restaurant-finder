@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Restaurants finder</title>
+  </head>
+  <body>
+    <h1>Enter a partial postcode:</h1>
+    <input type="text" id="userInput" />
+    <button id="sendButton">Send</button>
+    <p id="response"></p>
+
+    <script>
+      let responseHtml = null;
+      document
+        .getElementById("sendButton")
+        .addEventListener("click", function () {
+          let userInput = document.getElementById("userInput").value;
+          fetch("/api/find-restaurants", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ user_input: userInput }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.length > 0) {
+                responseHtml = data
+                  .map((item) => {
+                    return `<div>
+                    <h2>${item?.Name ?? "unknown"}</h2>
+                    <p>${item?.Url ?? "unknown"}</p>
+                    <p>${item?.Address?.FirstLine ?? "unknown"} - ${
+                      item?.Address?.Postcode.slice(0, 4) ?? "unknown"
+                    }</p>
+                  </div>`;
+                  })
+                  .join("");
+                  document.getElementById("response").innerHTML = responseHtml;
+              } else {
+                document.getElementById("response").innerHTML = "Restaurants not found";
+              }
+            });
+        });
+    </script>
+  </body>
+</html>

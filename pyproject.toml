@@ -1,0 +1,10 @@
+[project]
+name = "restaurant_finder"
+version = "0.0.1"
+dependencies = [
+    "requests",
+    'importlib-metadata; python_version<"3.9"',
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}

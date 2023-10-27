@@ -1,0 +1,5 @@
+jupyterlab==4.0.6
+pandas==2.1.2
+flask==3.0.0
+pywebview==4.4
+pyinstaller==6.1.0
