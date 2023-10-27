@@ -49,5 +49,5 @@ The `pip freeze` command was found to appended incompatible local environments p
 Running this script rather than pip to prevent appending all the installed packages from a local environment when adding other packages.
 
 #### Run executable
-`Go to app folder in dist folder click on app.exe to run`
-`To build run- -> pyinstaller app.py ->  check app.spec -> pyinstaller app.spec`
+`Go to app folder in dist folder click on app.exe to run` <br >
+`To build run- -> pyinstaller app.py ->  check app.spec -> pyinstaller app.spec` <br >
